@@ -1,0 +1,740 @@
+/**
+ * HEADER
+ */
+
+.pit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #050505;
+}
+
+.pit-header {
+  background: #131313;
+  padding: 22px 64px;
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1792px;
+    margin: 0 auto;
+  }
+  &__input {
+    &-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 392px;
+      z-index: 1;
+
+      @media (max-width: (1300px)) {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        max-width: 100%;
+      }
+
+      &.mobile-shown {
+        transform: translateY(72px);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &-autocomplete {
+      position: relative;
+
+      &-inner {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        z-index: 999;
+        border: 1px solid #e6e6e6;
+        border-radius: 6px;
+        padding: 12px 8px;
+        background: #050505;
+        width: 100%;
+        max-height: 460px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__logo {
+    @media (max-width: (650px)) {
+      max-width: 140px;
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    &-login {
+      & a {
+        display: block;
+        border: 1px solid #e6e6e6;
+        border-radius: 6px;
+        padding: 14px 40px;
+        background-color: #131313;
+        color: #e6e6e6;
+        font: 600 19px/22px "Merriweather Sans";
+        letter-spacing: 0.19px;
+        transition: background-color 0.3s ease, border 0.3s ease;
+
+        @media (any-hover: hover) {
+          &:hover {
+            border: 1px solid transparent;
+            background-color: #fa6605;
+          }
+        }
+
+        @media (max-width: (1300px)) {
+          border: none;
+          padding: 22px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            background-image: url(../img/icon-account.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 48px;
+            height: 48px;
+          }
+        }
+
+        @media (max-width: (650px)) {
+          padding: 0 15px;
+          &::before {
+            width: 38px;
+            height: 38px;
+          }
+        }
+      }
+    }
+
+    &-logout {
+      & a {
+        display: block;
+        border: 1px solid #e6e6e6;
+        border-radius: 6px;
+        padding: 14px 40px;
+        background-color: #131313;
+        color: #e6e6e6;
+        font: 600 19px/22px "Merriweather Sans";
+        letter-spacing: 0.19px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border 0.3s ease;
+
+        @media (any-hover: hover) {
+          &:hover {
+            border: 1px solid transparent;
+            background-color: #fa6605;
+          }
+        }
+
+        @media (max-width: (1300px)) {
+          border: none;
+          padding: 13px 23px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            background-image: url(../img/icon-logout.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        @media (max-width: (650px)) {
+          padding: 0 9px;
+        }
+
+        & span {
+          @media (max-width: (1300px)) {
+            font-size: 0;
+          }
+        }
+      }
+    }
+
+    &-search-mobile {
+      display: none;
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      cursor: pointer;
+
+      @media (max-width: (1300px)) {
+        display: block;
+        width: 48px;
+        height: 48px;
+        margin-right: 8px;
+        background-image: url(../img/icon-search.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      @media (max-width: (650px)) {
+        width: 50px;
+        height: 30px;
+      }
+    }
+
+    &-popup {
+      font: 600 19px/22px "Merriweather Sans";
+      letter-spacing: 0.19px;
+      color: #e6e6e6;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      background: #131313;
+      cursor: pointer;
+
+      & .pit-header__text-container {
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+
+        @media (any-hover: hover) {
+          &:hover {
+            background-color: #fa6605;
+          }
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #373737;
+        }
+
+        & a {
+          display: flex;
+          padding: 15px 30px;
+          align-items: center;
+
+          @media (max-width: (650px)) {
+            padding: 12px 20px;
+          }
+        }
+
+        &--popup {
+          padding: 15px 30px;
+        }
+
+        @media (max-width: (650px)) {
+          & .pit-header__text {
+            font: 600 14px/22px "Merriweather Sans";
+          }
+        }
+      }
+
+      &.header-popup {
+        &.disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+        @media (max-width: (1300px)) {
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &-item {
+      cursor: pointer;
+      position: relative;
+      margin-right: 64px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #fa6605;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s;
+        opacity: 0;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          &::after {
+            @keyframes fillAnimation {
+              0% {
+                transform: scaleX(0);
+              }
+              100% {
+                transform: scaleX(1);
+              }
+            }
+
+            animation: fillAnimation 0.3s linear forwards;
+            transform: scaleX(1);
+            opacity: 1;
+          }
+        }
+      }
+
+      @media (max-width: (1300px)) {
+        display: none;
+      }
+    }
+
+    @media (max-width: (1300px)) {
+      width: auto;
+    }
+
+    & span {
+      font: 600 19px/22px "Merriweather Sans";
+      letter-spacing: 0.19px;
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    .disabled-link {
+      pointer-events: none;
+    }
+  }
+
+  &__about {
+    margin-right: 41px;
+  }
+
+  &__about-link {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background-color: #fa6605;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s;
+      opacity: 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          @keyframes fillAnimation {
+            0% {
+              transform: scaleX(0);
+            }
+            100% {
+              transform: scaleX(1);
+            }
+          }
+
+          animation: fillAnimation 0.3s linear forwards;
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (max-width: (1300px)) {
+      display: none;
+    }
+  }
+  .custom-input {
+    padding-left: 46px;
+  }
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  .header-popup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #131313;
+    z-index: 100;
+  }
+}
+
+
+/**
+ * FOOTER
+ */
+
+ .pit-footer {
+  background-color: #050505;
+  border-top: 1px solid rgb(105, 105, 105, 0.5);
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1442px;
+    margin: 0 auto;
+    padding: 68px 25px 50px;
+
+    @media (max-width: (650px)) {
+      padding: 51px 25px 32px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 42px;
+
+    @media (max-width: (650px)) {
+      text-align: center;
+      margin-bottom: 21px;
+    }
+
+    & img {
+      @media (max-width: (650px)) {
+        max-width: 240px;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(105, 105, 105, 0.5);
+    padding-bottom: 48px;
+
+    &-left {
+      a {
+        color: #828282;
+
+        &:not(:last-child) {
+          margin-right: 48px;
+        }
+
+        @media (max-width: (374px)) {
+          &:not(:last-child) {
+            margin-right: 32px;
+          }
+        }
+      }
+    }
+
+    &-left .pit-footer__nav-item {
+      font: 400 15px/21px "Source Sans Pro";
+      color: #828282;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+    }
+
+    &-link {
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+
+      & img {
+        display: block;
+        transition: transform 0.3s ease;
+
+        @media (any-hover: hover) {
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    @media (max-width: (650px)) {
+      flex-direction: column;
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 42px;
+
+    & span {
+      font: 400 15px/21px "Source Sans Pro";
+      color: #828282;
+    }
+
+    @media (max-width: (650px)) {
+      padding-top: 32px;
+    }
+
+    @media (max-width: (374px)) {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+}
+
+/**
+CARDS
+*/
+.pit-cards {
+  background: linear-gradient(to bottom, #050505, #0c0b0b);
+  padding: 64px 0 82px;
+  &__cards-blocks{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    column-gap: 48px;
+    row-gap: 96px;
+
+    @media (max-width: (1300px)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: (825px)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: (650px)) {
+      column-gap: 24px;
+      row-gap: 48px;
+    }
+  }
+
+  @media (max-width: (650px)) {
+    padding: 32px 0 64px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1442px;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+}
+
+
+
+/**
+GENERAl
+*/
+.error {
+  position: absolute;
+  color: red;
+  left: 0;
+  bottom: -16px;
+  font: 300 12px/14px "Merriweather Sans";
+  width: 100%;
+  text-align: center;
+
+  @media (max-width: (650px)) {
+      bottom: -18px;
+  }
+}
+.input-container{
+  margin-bottom: 24px;
+  position: relative;
+}
+.input__icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  &-card {
+    position: absolute;
+    top: 50%;
+    right: 76px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    @media (max-width: (374px)) {
+      right: 40px;
+    }
+  }
+}
+.custom-input {
+  width: 100%;
+  height: 52px;
+  padding-left: 10px;
+  border: 1px solid #828282;
+  border-radius: 6px;
+  outline: none;
+  background-color: #050505;
+  font: 400 19px/27px "Source Sans Pro";
+  color: #f2f2f2;
+  letter-spacing: 0.76px;
+
+  &::placeholder {
+    font: 400 19px/27px "Source Sans Pro";
+    color: #828282;
+  }
+
+  &:focus::placeholder {
+    transform: translateY(-10px);
+    font: 400 15px/24px "Source Sans Pro";
+  }
+
+  @media (max-width: (650px)) {
+    font: 400 16px/27px "Source Sans Pro";
+    letter-spacing: 0.16px;
+
+    &::placeholder {
+      font: 400 16px/27px "Source Sans Pro";
+    }
+
+    &:focus::placeholder {
+      transform: translateY(-10px);
+      font: 400 12px/24px "Source Sans Pro";
+    }
+  }
+
+  @media (max-width: (374px)) {
+    &::placeholder {
+      font: 400 14px/27px "Source Sans Pro";
+    }
+  }
+}
+.navigation {
+  display: inline-block;
+  position: relative;
+  color: #fa6605;
+  font-family: 'Source Sans Pro';
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 34px;
+  padding-left: 6px;
+  text-decoration: underline;
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 8px;
+    color: #fa6605;
+  }
+
+  @media (max-width: (650px)) {
+    font-family: 'Merriweather Sans';
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 22px;
+  }
+}
+
+/**
+CHECKBOX
+*/
+.custom-checkbox {
+  position: absolute;
+  width: 0;
+  left: 50px;
+  height: 0;
+  opacity: 0;
+  cursor: pointer;
+
+  &:checked ~ .checkmark::after {
+    opacity: 1;
+    transition: all 0.2s ease;
+  }
+
+  &__label {
+    color: #e6e6e6;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Source Sans Pro';
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+
+    & .checkmark {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      flex: none;
+    }
+
+    & .checkmark::after {
+      position: absolute;
+      display: block;
+      content: '';
+      left: 50%;
+      top: 40%;
+      width: 8px;
+      height: 16px;
+      border: solid #e6e6e6;
+      border-width: 0 2px 2px 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover .checkmark {
+      color: #e6e6e6;
+      transition: all 0.2s ease;
+    }
+  }
+}
+.checkmark {
+  color: #828282;
+  border: 1px solid #828282;
+}
+.custom-checkbox:checked ~ .checkmark {
+  background: #fa6605;
+  border: none;
+}
+.checkmark ~ .pit-checkmark__text {
+  padding-top: 4px;
+}

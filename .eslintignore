@@ -1,0 +1,7 @@
+/.idea/
+/build/
+/config/
+/dist/
+/node_modules/
+/static/
+/*.js

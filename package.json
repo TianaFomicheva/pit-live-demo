@@ -1,0 +1,30 @@
+{
+  "name": "pit-live-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@vueuse/components": "^10.4.1",
+    "@vueuse/core": "^10.4.1",
+    "pinia": "^2.1.6",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2",
+    "vue": "^3.3.4",
+    "vue-click-outside-of": "^1.0.4",
+    "vue-router": "^4.2.5",
+    "vue-the-mask": "^0.11.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5"
+  }
+}

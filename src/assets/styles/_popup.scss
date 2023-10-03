@@ -1,0 +1,89 @@
+.pit-popup {
+    max-width: 470px;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    padding: 0 25px;
+    background-color: transparent;
+  
+    &__wrapper {
+      margin: 0 auto;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      padding: 48px;
+      background-color: #050505;
+  
+      @media (max-width: (650px)) {
+        padding: 30px;
+      }
+    }
+  
+    &__title {
+      text-align: center;
+      color: #fff7f2;
+      margin-bottom: 24px;
+      text-align: center;
+      font: normal normal normal 24px/34px 'Source Sans Pro';
+  
+      @media (max-width: (650px)) {
+        font: normal normal normal 21px/29px 'Source Sans Pro';
+        margin: 0 auto 30px;
+      }
+    }
+    &__input {
+      padding-left: 10px;
+      padding-right: 40px;
+      background: #050505;
+  
+      &:focus::placeholder {
+        transform: translateY(-10px);
+        font: 400 15px/24px 'Source Sans Pro';
+      }
+  
+      &-container {
+        position: relative;
+        margin-bottom: 32px;
+        }
+      }
+  
+    &__btn {
+      width: 100%;
+      font: 700 19px/22px 'Merriweather Sans';
+      letter-spacing: 0.38px;
+      color: #ffffff;
+      padding: 14px 0;
+      background-color: #fa6605;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 24px;
+      text-align: center;
+      cursor: pointer;
+  
+      @media (max-width: (650px)) {
+        font: 700 16px/22px 'Merriweather Sans';
+        margin-bottom: 16px;
+      }
+  
+      &-plain {
+        font: 600 19px/22px 'Merriweather Sans';
+        letter-spacing: 0.19px;
+        width: 100%;
+        color: #fed9c0;
+        border: 1px solid #fed9c0;
+        border-radius: 6px;
+        padding: 14px 40px;
+        background-color: #131313;
+        text-align: center;
+        cursor: pointer;
+  
+        @media (max-width: (650px)) {
+          font: 700 16px/22px 'Merriweather Sans';
+          letter-spacing: 0.32px;
+        }
+      }
+    }
+
+  }
+  

@@ -1,0 +1,150 @@
+.pit-card {
+    &__text-block {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex: 1;
+        height: 100%;
+    }
+    &__img-play {
+        position: absolute;
+        cursor: pointer;
+    }
+    &__img-main {
+        display: block;
+        width: 100%;
+
+        @media (max-width: (650px)) {
+            border-radius: 10px;
+        }
+    }
+    &__title {
+        font: 600 24px/32px "Merriweather Sans";
+        color: #ffffff;
+        margin-bottom: 12px;
+
+        @media (max-width: (650px)) {
+            font: 600 18px/25px "Merriweather Sans";
+            margin-bottom: 4px;
+        }
+    }
+    &__date {
+        font: 600 19px/27px "Source Sans Pro";
+        color: #fed9c0;
+        margin-bottom: 4px;
+
+        @media (max-width: (650px)) {
+            font: 400 16px/23px "Source Sans Pro";
+            margin-bottom: 4px;
+        }
+    }
+
+    &__place {
+        font: 400 19px/27px "Source Sans Pro";
+        color: #f2f2f2;
+        margin-bottom: 16px;
+
+        @media (max-width: (650px)) {
+            font: 400 16px/23px "Source Sans Pro";
+        }
+    }
+
+    &__btn {
+        font: 700 19px/24px "Merriweather Sans";
+        letter-spacing: 0.38px;
+        color: #ffffff;
+        padding: 14px 40px;
+        background-color: #fa6605;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+
+        &:disabled {
+            color: #050505;
+            background: #373737;
+            pointer-events: none;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #000000;
+            }
+        }
+    }
+    &-vertical,
+    &-horizontal {
+        &__outer {
+            align-items: stretch;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            & .pit-card__imgs {
+                position: relative;
+                width: 100%;
+                margin-bottom: 16px;
+
+                @media (max-width: (650px)) {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+
+        &__inner {
+            & .pit-card__img-play {
+                top: 8px;
+                right: 8px;
+            }
+        }
+    }
+    &-horizontal {
+        &__inner {
+            display: flex;
+            flex-direction: row;
+            & .pit-cards__text-block {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                flex: 1;
+                height: 100%;
+                &__inner{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    flex: 1;
+                    height: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        &-min {
+            &__outer {
+                align-items: stretch;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                border-bottom: 1px solid #373737;
+                padding: 12px 0;
+                &:first-child {
+                    margin-top: 8px;
+                }
+            }
+
+            &__inner {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 16px;
+                .pit-card__imgs {
+                    position: relative;
+                    &:not(.pit-card__img-play) {
+                        height: 63px;
+                        width: 63px;
+                    }
+                }
+            }
+        }
+    }
+}

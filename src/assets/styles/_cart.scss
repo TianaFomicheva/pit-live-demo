@@ -1,0 +1,614 @@
+.pit-cart {
+  position: relative;
+  padding: 32px 25px 104px;
+  flex-grow: 1;
+
+  @media (max-width: (650px)) {
+    padding: 22px 25px 96px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 912px;
+    margin: 0 auto;
+  }
+
+  &__navigation {
+    position: relative;
+    color: #fa6605;
+    font-family: "Source Sans Pro";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 32px;
+    padding-left: 12px;
+    text-decoration: underline;
+
+    & svg {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      font-size: 10px;
+      color: #fa6605;
+    }
+
+    @media (max-width: (650px)) {
+      font-family: "Merriweather Sans";
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 22px;
+    }
+
+    &--back {
+      @media (max-width: (650px)) {
+        margin-bottom: 22px;
+      }
+    }
+  }
+
+  &__header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #505050;
+
+    & .pit-shopping-cart__title {
+      font: normal normal bold 30px/38px "Merriweather Sans";
+      color: #fed9c0;
+
+      @media (max-width: (650px)) {
+        font: normal normal bold 21px/30px "Merriweather Sans";
+        letter-spacing: 0.1px;
+      }
+    }
+
+    @media (max-width: (650px)) {
+      padding: 0 0 16px;
+    }
+  }
+
+  &__text-block {
+    display: flex;
+    flex-direction: column;
+
+    & .pit-shopping-cart__title {
+      font: 600 24px/32px "Merriweather Sans";
+      color: #ffffff;
+      margin-bottom: 12px;
+
+      @media (max-width: (650px)) {
+        font: 600 18px/25px "Merriweather Sans";
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  &__description {
+    display: grid;
+    grid-template-columns: minmax(auto, 192px) auto;
+    gap: 48px;
+    padding: 32px 0;
+    border-bottom: 1px solid #373737;
+
+    @media (max-width: (650px)) {
+      grid-template-columns: minmax(auto, 63px) auto;
+      padding: 12px 0;
+      gap: 16px;
+    }
+  }
+
+  &__payment {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    &--cards {
+      padding: 0;
+      padding-top: 16px;
+    }
+
+    @media (max-width: (825px)) {
+      grid-template-columns: auto;
+    }
+
+    @media (max-width: (650px)) {
+      grid-template-columns: auto;
+      gap: 0;
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+
+    &-header {
+      border-bottom: 1px solid #828282;
+      padding-bottom: 24px;
+
+      &--info {
+        padding-bottom: 16px;
+      }
+
+      @media (max-width: (650px)) {
+        padding-bottom: 8px;
+        border-bottom: 2px solid #828282;
+      }
+    }
+
+    &-subheader {
+      padding: 32px 0;
+
+      @media (max-width: (650px)) {
+        padding: 24px 0 16px;
+      }
+    }
+
+    &-title {
+      font-family: 'Inter';
+      font-size: 24px;
+      font-weight: 700;
+      color: #fed9c0;
+
+      @media (max-width: (650px)) {
+        font-family: 'Merriweather Sans';
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 600;
+      }
+    }
+
+    &-subtitle {
+      font-family: 'Source Sans Pro';
+      font-size: 24px;
+      font-weight: 300;
+      color: #e6e6e6;
+      opacity: 0.7;
+
+      @media (max-width: (650px)) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+    }
+  }
+  &__details {
+    max-width: 672px;
+    width: 100%;
+    margin-left: auto;
+
+    @media (max-width: (825px)) {
+      max-width: 100%;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 32px;
+
+    @media (max-width: (650px)) {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__info-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #373737;
+  }
+
+  &__info-fullprice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-bottom: 16px;
+
+    & .pit-shopping-cart__text {
+      &:last-child {
+        font-weight: 700;
+      }
+    }
+
+    @media (max-width: (650px)) {
+      padding: 8px 0;
+    }
+  }
+
+  &__info-bookingfee {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #373737;
+
+    & .pit-shopping-cart__text {
+      &:last-child {
+        font-weight: 700;
+      }
+    }
+
+    @media (max-width: (650px)) {
+      padding-bottom: 8px;
+    }
+  }
+
+  &__info-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 2px solid #828282;
+
+    & .pit-shopping-cart__text {
+      &:first-child {
+        font: normal normal 700 24px/32px "Merriweather Sans";
+        color: #fed9c0;
+
+        @media (max-width: (650px)) {
+          font: normal normal 700 18px/25px "Merriweather Sans";
+        }
+      }
+
+      &:last-child {
+        font-weight: 700;
+      }
+    }
+
+    @media (max-width: (650px)) {
+      padding: 8px 0;
+    }
+  }
+
+  &__info-ticket {
+    font: 400 19px/32px "Merriweather Sans";
+    padding: 32px 0 18px;
+    color: #e6e6e6;
+
+    @media (max-width: (650px)) {
+      padding: 24px 0 8px;
+      font: 400 18px/25px "Merriweather Sans";
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+  }
+
+  &__img-main {
+    display: block;
+    width: 100%;
+    max-width: 192px;
+    border-radius: 6px;
+
+    @media (max-width: (650px)) {
+      border-radius: 10px;
+      max-width: 63px;
+    }
+  }
+
+  &__img-play {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    width: 32px;
+    height: 32px;
+
+    @media (max-width: (650px)) {
+      width: 24px;
+      height: 24px;
+      left: 4px;
+      bottom: 4px;
+    }
+  }
+
+  &__text {
+    color: #e6e6e6;
+    font-family: "Source Sans Pro";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    &-total {
+      font: normal normal 600 24px/32px "Merriweather Sans";
+      letter-spacing: 0px;
+      color: #fed9c0;
+    }
+
+    @media (max-width: (650px)) {
+      font-size: 16px;
+      line-height: 23px;
+      opacity: 0.8;
+      color: #f2f2f2;
+    }
+  }
+
+  &__price {
+    color: #fed9c0;
+    font-family: "Merriweather Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+
+    @media (max-width: (650px)) {
+      font-size: 21px;
+      line-height: 30px;
+      letter-spacing: 0.1px;
+    }
+  }
+
+  &__amount-block {
+    display: flex;
+    align-items: center;
+  }
+
+  &__amount-button {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    background: #fa6605;
+    border-radius: 50%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.disabled {
+      background: #828282;
+    }
+
+    @media (max-width: (650px)) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  & .fa-plus,
+  .fa-minus {
+    font-size: 24px;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  &__amount {
+    color: #fed9c0;
+    font-family: "Merriweather Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.16px;
+    width: 56px;
+    text-align: center;
+
+    @media (max-width: (650px)) {
+      font-size: 21px;
+      line-height: 30px;
+      letter-spacing: 0.1px;
+      color: #fff7f2;
+    }
+  }
+
+  &__title {
+    font: 600 24px/32px "Merriweather Sans";
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+
+  &__date {
+    font: 600 19px/27px "Source Sans Pro";
+    color: #fed9c0;
+    margin-bottom: 4px;
+
+    @media (max-width: (650px)) {
+      font: 400 16px/23px "Source Sans Pro";
+    }
+  }
+
+  &__place {
+    font: 400 19px/27px "Source Sans Pro";
+    color: #f2f2f2;
+    margin-bottom: 4px;
+
+    @media (max-width: (650px)) {
+      font: 400 16px/23px "Source Sans Pro";
+      margin-bottom: 0;
+    }
+  }
+
+  &__section {
+    color: #e6e6e6;
+    font-family: "Source Sans Pro";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    opacity: 0.79;
+
+    @media (max-width: (650px)) {
+      font: 400 16px/23px "Source Sans Pro";
+    }
+  }
+  &__link {
+    font: 600 19px/23px 'Source Sans Pro';
+    color: #fa6605;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &--select {
+      font-family: 'Source Sans Pro';
+      font-size: 19px;
+      line-height: 27px;
+      font-weight: 400;
+      opacity: 0.8;
+
+      @media (max-width: (650px)) {
+        font-size: 16px;
+        line-height: 23px;
+      }
+    }
+  }
+  &__btns-couple {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    & a {
+      width: 100%;
+    }
+
+    @media (max-width: (650px)) {
+      flex-direction: column;
+    }
+  }
+
+  &__inputs-couple, &__text-couple {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 16px;
+    position: relative;
+
+    @media (max-width: (650px)) {
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 24px;
+    }
+  }
+&__input{
+  padding-left: 10px;
+  padding-right: 40px;
+  background: #050505;
+  &.customized-credit-field {
+    padding-left: 150px;
+    display: flex;
+    align-items: center;
+  }
+}
+  &__input-container {
+    margin-bottom: 24px;
+    &,&--list{
+    position: relative;
+    background: #131313;
+    width: 100%;
+    @media (max-width: (825px)) {
+      max-width: 100%;
+    }
+
+  }
+
+}
+
+  &__btn {
+    font: 700 19px/22px "Merriweather Sans";
+    letter-spacing: 0.38px;
+    width: 100%;
+    color: #ffffff;
+    padding: 14px 23px;
+    background: #fa6605;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: color 0.3s ease;
+    &-container {
+      margin-bottom: 24px;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #000000;
+      }
+    }
+
+    @media (max-width: (825px)) {
+      max-width: 100%;
+      font-size: 16px;
+    }
+
+    &-plain {
+      font: 600 19px/22px "Merriweather Sans";
+      width: 100%;
+      letter-spacing: 0.19px;
+      color: #fed9c0;
+      border: 1px solid #fed9c0;
+      border-radius: 6px;
+      padding: 14px 40px;
+      background: #131313;
+      text-align: center;
+      cursor: pointer;
+      transition: color 0.3s ease, border 0.3s ease;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #fa6605;
+          border: 1px solid #fa6605;
+        }
+      }
+
+      @media (max-width: (825px)) {
+        max-width: 100%;
+        font-size: 16px;
+      }
+    }
+  }
+  &__carts-list {
+    position: absolute;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+
+    & .pit-checkout__input-container {
+      margin-bottom: 0;
+    }
+  }
+  &__mark {
+    text-align: center;
+    color: #e6e6e6;
+    font-family: "Source Sans Pro";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.12px;
+    opacity: 0.8;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #696969;
+
+    @media (max-width: (650px)) {
+      text-align: left;
+      padding-bottom: 0;
+      margin-bottom: 16px;
+      border-bottom: none;
+    }
+  }
+  .disabled-link {
+    pointer-events: none;
+  }
+  .cart-circles-outer {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+  }
+  .cart-circles-group {
+    color: #828282;
+    margin-right: 8px;
+    @media (max-width: (650px)) {
+      margin-right: 5px;
+    }
+
+    & .fa-circle {
+      color: #828282;
+      height: 0.6em;
+
+      @media (max-width: (650px)) {
+        height: 0.6em;
+      }
+    }
+  }
+}

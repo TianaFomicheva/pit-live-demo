@@ -1,0 +1,14 @@
+.pit-paycard{
+    &__inputs-couple {
+      &, &--underlined{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+        padding-bottom: 16px;   
+        position: relative;
+      }    
+        &--underlined{
+          border-bottom: 1px solid #505050;
+        }
+      }
+}
