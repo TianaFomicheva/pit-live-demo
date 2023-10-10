@@ -1,7 +1,7 @@
 <script setup>
 import ComponentCardHorizontal from '@/components/ComponentCardHorizontal.vue'
 import { ref, computed, onMounted } from 'vue'
-import { useEventsStore } from '@/store/events.js'
+import { useEventsStore } from '@/store/events.ts'
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
 const route = useRoute()

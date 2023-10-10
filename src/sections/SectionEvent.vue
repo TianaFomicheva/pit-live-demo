@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { vOnClickOutside } from '@vueuse/components'
 import { useRoute, useRouter } from 'vue-router'
-import { useEventsStore } from '@/store/events.js'
+import { useEventsStore } from '@/store/events.ts'
 import { useCartStore } from '@/store/cart.js'
 const storeEvents = useEventsStore()
 const storeCart = useCartStore()

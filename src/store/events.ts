@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+//@ts-ignore
+import {Event} from '@/types/eventsType.ts'
 export const useEventsStore = defineStore('events', {
     state: () => ({
         events: JSON.parse(localStorage.getItem('events')) || [],
@@ -9,7 +11,7 @@ export const useEventsStore = defineStore('events', {
     }),
     actions: {
         async loadEvents() {
-            this.events = await fetch('./events.json').then(res =>res.json()).then(res => {return res.map((item) =>{               
+            this.events = await fetch('./events.json').then(res =>res.json()).then((res :[]) => {return res.map((item: Event) =>{               
                 const d = new Date(Date.parse(item.date))
                 const day = d.getDay()
                 const date = d.getDate()
@@ -23,7 +25,7 @@ export const useEventsStore = defineStore('events', {
                 dayMonth: date < 10 ? '0' + date + ' ' + this.monthNames[month] : date + ' ' + this.monthNames[month],
                 time: hour > 12 ? Number(hour - 12) + ':' + min + 'pm' : hour + ':' + min+ 'am'
 
-}})}).then(res => {localStorage.setItem('events', JSON.stringify(res)); return res;}).catch((err) => console.log(err))
+}})}).then((res) => {localStorage.setItem('events', JSON.stringify(res)); return res;}).catch((err: String) => console.log(err))
 
 }
         

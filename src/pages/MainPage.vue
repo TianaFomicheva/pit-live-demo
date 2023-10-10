@@ -5,7 +5,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 import { storeToRefs } from 'pinia'
-import { useEventsStore } from '@/store/events.js'
+import { useEventsStore } from '@/store/events.ts'
 import { useAuthStore } from '@/store/auth.js'
 const route = useRoute()
 const router = useRouter()
@@ -16,7 +16,6 @@ const { events } = storeToRefs(storeEvents)
 const count = ref(0)
 const isAuthorized = computed(() => user.value.token)
 const setAuthorized = (state) => {
-  console.log(2344)
   isAuthorized.value = state
   count.value++
   router.push('/')

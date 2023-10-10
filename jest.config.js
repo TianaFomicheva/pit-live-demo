@@ -8,7 +8,7 @@ export default {
       ]
     },
     "moduleFileExtensions": [
-      "js",
+      "js","ts",
       "json",
       "vue"
     ],
@@ -23,6 +23,7 @@ export default {
     ],
     "transform": {
       "^.+\\.js$": ['babel-jest', { presets: ['@babel/preset-env'] }],
+      "^.+\\.ts$": ['babel-jest', { presets: ['@babel/preset-env'] }],
       "^.+\\.vue$": "@vue/vue3-jest",
       "^.+\\.svg$": "<rootDir>/svgTransform.cjs"
     },
