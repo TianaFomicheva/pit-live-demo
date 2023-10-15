@@ -1,8 +1,11 @@
+import useLocalStorage from '@/composables/useLocalStorage.js'
+const useLocal = useLocalStorage()
+
 export { fakeBackend };
 
 // array in local storage for registered users
 const usersKey = 'vue-3-pinia-registration-login-example-users';
-let users = JSON.parse(localStorage.getItem(usersKey)) || [];
+let users = useLocal.getFromStorage(usersKey) || [];
 
 function fakeBackend() {
     let realFetch = window.fetch;
@@ -37,7 +40,7 @@ function fakeBackend() {
 
             function authenticate() {
                 const { email, password } = body()
-                const savedUser = JSON.parse(localStorage.getItem('user'))
+                const savedUser = useLocal.getFromStorage('user')
                 const user = savedUser.email === email ? {... savedUser, password} : false
 
                 if (!user) return error('Username or password is incorrect');
@@ -52,7 +55,7 @@ function fakeBackend() {
                 const user = body();
 
                 user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
-                localStorage.setItem('user', JSON.stringify(user._value));
+                useLocal.setToStorage('user', user._value);
                 return ok();
             }
 
@@ -86,7 +89,7 @@ function fakeBackend() {
 
                 // update and save user
                 Object.assign(user, params);
-                localStorage.setItem(usersKey, JSON.stringify(users));
+                useLocal.setToStorage(usersKey, users);
 
                 return ok();
             }
@@ -95,7 +98,7 @@ function fakeBackend() {
                 if (!isAuthenticated()) return unauthorized();
 
                 users = users.filter(x => x.id !== idFromUrl());
-                localStorage.setItem(usersKey, JSON.stringify(users));
+                useLocal.setToStorage(usersKey, users);
                 return ok();
             }
 

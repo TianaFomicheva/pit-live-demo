@@ -6,6 +6,8 @@ import { ref, reactive, toRaw } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/auth.js'
 import { storeToRefs } from 'pinia'
+import useLocalStorage from '@/composables/useLocalStorage.js'
+const useLocal = useLocalStorage()
 const isForgotPasswordPopupOpen = ref(false)
 const isConfirmationPopupOpen = ref(false)
 const authStore = useAuthStore()
@@ -49,10 +51,10 @@ const onSubmit = () => {
     ...user.value, firstName: values.firstName, lastName: values.lastName, email: values.email,
     mobile: values.mobile
   })
-  localStorage.setItem('user', JSON.stringify({
+  useLocal.setToStorage('user', {
     ...user.value, firstName: values.firstName, lastName: values.lastName, email: values.email,
     mobile: values.mobile
-  }))
+  })
     newCartErrs.numberErr = addedCart.value && !newCart.number.length,
     newCartErrs.numberValidErr = newCart.number.length && newCart.number.replaceAll(' ', '').length < 16
     newCartErrs.holderErr = addedCart.value && !newCart.holder.length,

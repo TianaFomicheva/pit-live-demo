@@ -1,19 +1,21 @@
 import { defineStore } from 'pinia'
 import { fetchWrapper } from '@/helpers/fetchWrapper.js'
+import useLocalStorage from '@/composables/useLocalStorage.js'
+const useLocal = useLocalStorage()
 const baseUrl = `${process.env.VITE_API_URL}/user`
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         // initialize state from local storage to enable user to stay logged in
-        user: JSON.parse(localStorage.getItem('user')) || {},
-        carts: JSON.parse(localStorage.getItem('carts')) || [],
+        user: useLocal.getFromStorage('user') || {},
+        carts: useLocal.getFromStorage('carts') || [],
     }),
     actions: {
         async login(email, password) {
             try {
                 const user = await fetchWrapper.post(`${baseUrl}/authenticate`, { email, password })
                 this.user = user
-                localStorage.setItem('user', JSON.stringify(user))
+                useLocal.setToStorage('user', user)
             }
             catch (error) {
                 console.log(error)
@@ -21,9 +23,9 @@ export const useAuthStore = defineStore('auth', {
         },
         logout() {
             this.user.token = null
-            const localUser = JSON.parse(localStorage.getItem('user'))
+            const localUser = useLocal.getFromStorage('user')
             delete localUser.token
-            localStorage.setItem('user', JSON.stringify(localUser))
+            useLocal.setToStorage('user',localUser)
         },
         async register(user) {
             await fetchWrapper.post(`${baseUrl}/register`, user)
@@ -33,17 +35,14 @@ export const useAuthStore = defineStore('auth', {
         },
         setCarts(carts) {
             this.carts = carts
-            localStorage.setItem('carts', JSON.stringify(carts))
+            useLocal.setToStorage('carts', carts)
         },
         deleteCart(cart){
-            const arr = JSON.parse(localStorage.getItem('carts'))
-           
+            const arr = useLocal.getFromStorage('carts')           
             const index = arr.findIndex(el =>el.number == cart.number)
-
             arr.splice(index, 1)
-
             this.carts = arr
-            localStorage.setItem('carts', JSON.stringify(arr))
+            useLocal.setToStorage('carts', arr)
              
 
         }
