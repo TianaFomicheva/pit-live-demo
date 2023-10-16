@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
     'process.env.API_URL': JSON.stringify(env.API_URL)
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', 'json'],
+    extensions: ['.tsx', '.ts', '.js', 'json', '.vue'],
     alias: {
         '@': `${path.resolve(__dirname, 'src')}/`
     }

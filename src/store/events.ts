@@ -1,10 +1,7 @@
 import { defineStore } from 'pinia'
-//@ts-ignore
-import { Event } from '@/types/eventsType.ts'
-//@ts-ignore
-import useLocalStorage from '@/composables/useLocalStorage.js'
-//@ts-ignore
-import useFormattedDate from '@/composables/useFormattedDate.js'
+import { Event } from '../types/eventsType'
+import useLocalStorage  from '../composables/useLocalStorage.js'
+import useFormattedDate from '../composables/useFormattedDate.js'
 const useLocal = useLocalStorage()
 const useFormatted = useFormattedDate()
 

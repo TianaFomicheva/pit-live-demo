@@ -26,6 +26,7 @@ module.exports = {
         'no-debugger':  'off',
 
         // spacing inside braces
-        'object-curly-spacing': 'off'
+        'object-curly-spacing': 'off',
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }
